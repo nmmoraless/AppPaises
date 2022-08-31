@@ -1,0 +1,39 @@
+<div *ngIf="!pais; else divPais" class="alert alert-info">
+    <p class="p-0 m-0">Espere por favor...</p>
+</div>
+
+<ng-template #divPais>
+    <div class="row">
+        <div class="col-12">
+            <h1>País: <small>{{pais.name.common}}</small></h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <h3>Bandera</h3>
+            <img [src]="pais.flags.png" class="img-thumbnail" alt="Bandera">
+        </div>
+
+        <div class="col">
+            <h3>Información</h3>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <strong>Área:</strong> {{pais.area | number}} km2
+                </li>
+                <li class="list-group-item">
+                    <strong>Región:</strong> {{pais.region }}
+                </li>
+                <li class="list-group-item">
+                    <strong>Subregión:</strong> {{pais.subregion }}
+                </li>
+                <li class="list-group-item">
+                    <strong>Capital:</strong> {{pais.capital}}
+                </li>
+                <li class="list-group-item">
+                    <strong>Ubicación: </strong>Latitud {{pais.latlng[0]}}, Longintud {{pais.latlng[1]}}
+                </li>
+            </ul>
+        </div>
+    </div>
+</ng-template>
